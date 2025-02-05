@@ -21,7 +21,7 @@
       const hiddenValue = 'hidden';
       const list = Util.createElement('ol', { id: 'docs-toc-list', 'hidden': hiddenValue }, container);
       const headings = NS.main.querySelectorAll('h2, h3, h4, h5, h6');
-      headings.forEach(heading => {
+      headings.forEach((heading) => {
         const section = heading.closest('section');
         const elemName = heading.tagName.toLowerCase();
         const hash = `#${section.id}`;
@@ -64,7 +64,7 @@
     },
     delegateEvent(selector, type, listener, options) {
       if (options == null) options = false;
-      document.addEventListener(type, evt => {
+      document.addEventListener(type, (evt) => {
         for (let elem = evt.target; elem && elem !== document; elem = elem.parentNode) {
           if (elem.matches(selector)) return listener.call(elem, evt);
         }
@@ -74,13 +74,13 @@
       if (Util.empty(elems)) return null;
       if (!elems.forEach) elems = [elems];
       if (options == null) options = false;
-      elems.forEach((elem, idx) => elem.addEventListener(type, evt => { listener.call(elem, evt, idx); }, options));
+      elems.forEach((elem, idx) => elem.addEventListener(type, (evt) => { listener.call(elem, evt, idx); }, options));
     },
     triggerEvent(elems, type, options) {
       if (Util.empty(elems)) return null;
       if (!elems.forEach) elems = [elems];
       const event = new Event(type, options);
-      elems.forEach(elem => elem.dispatchEvent(event));
+      elems.forEach((elem) => elem.dispatchEvent(event));
     },
     elemsFilter(elems, selector, single = false) {
       const result = [];
