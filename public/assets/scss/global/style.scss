@@ -450,6 +450,9 @@ small {
     gap: 20px;
 
     .profileInfo {
+      width: calc(100% - 260px);
+      min-width: 300px;
+      max-width: 480px;
       line-height: 1.5;
 
       dl {
@@ -458,7 +461,8 @@ small {
           font-family: var(--font-serif);
         }
         dd {
-          margin: 0;
+          margin-top: 4px;
+          margin-left: 10px;
 
           ul {
             list-style: none;
