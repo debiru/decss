@@ -1,0 +1,5 @@
+@use "sass:string";
+
+@function rgb($r, $g, $b, $a) {
+  @return string.unquote("rgb(#{$r} #{$g} #{$b} / #{$a})");
+}
