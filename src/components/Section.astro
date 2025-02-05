@@ -1,19 +1,20 @@
 ---
 import { setID, getID } from '/src/config/view';
-const { heading, id, lv } = Astro.props;
+let { heading, id, lv, lang, langLast } = Astro.props;
+if (langLast === undefined) langLast = lang;
 const Heading = `h${lv}`;
 ---
 
 <section class={ `section lv-${lv}` } id={ setID(id) }>
-  <div class="sectionHeader">
+  <div class="sectionHeader" lang={ lang }>
     <Heading><a href={ getID() }>{ heading }</a></Heading>
   </div>
   <div class="sectionBody">{
-    Astro.slots.has('sectionChild') && <div class="sectionChild"><slot name="sectionChild" /></div>
+    Astro.slots.has('sectionChild') && <div class="sectionChild" lang={ lang }><slot name="sectionChild" /></div>
   }{
     Astro.slots.has('sectionSibling') && <div class="sectionSibling"><slot name="sectionSibling" /></div>
   }{
-    Astro.slots.has('sectionChildLast') && <div class="sectionChild"><slot name="sectionChildLast" /></div>
+    Astro.slots.has('sectionChildLast') && <div class="sectionChild" lang={ langLast }><slot name="sectionChildLast" /></div>
   }
   </div>
 </section>

@@ -1,6 +1,7 @@
 ---
-const { url, label } = Astro.props;
-const target = /^#/.test(url) ? undefined : '_blank';
+let { url, label } = Astro.props;
+if (label === undefined) label = url;
+const target = /^https?:\/\//.test(url) ? '_blank' : undefined;
 ---
 
 <a href={url} target={target}>{label}</a>

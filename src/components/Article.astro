@@ -1,12 +1,13 @@
 ---
 import Link from '/src/components/Link.astro';
+import Util from '/src/config/Util';
 import { args } from '/src/config/view';
 ---
 
 <div class="content-inner">
   <div class="section lv-1">
     <div class="sectionHeader">
-      <h1>{ args.titlePrefix || args.title }</h1>
+      <h1>{ (args.titlePrefix && Util.sprintf('%s - %s', args.titlePrefix, args.siteName)) || args.title }</h1>
     </div>
     <div class="sectionBody">
       <div class="sectionChild main-header">
@@ -23,7 +24,7 @@ import { args } from '/src/config/view';
             <dd>2025年2月2日</dd>
           </div>
         </dl>
-        <p class="keywords"><em>キーワード：</em>{ args.keywords.map((keyword, idx) => <Fragment>{ idx > 0 && ', ' }<span class="wbr">{ keyword }</span></Fragment>) }</p>
+        <p class="keywords"><em>Keywords: </em>{ args.keywords.map((keyword, idx) => <Fragment>{ idx > 0 && ', ' }<span class="wbr">{ keyword }</span></Fragment>) }</p>
       </div>
       <div class="sectionSibling"><slot /></div>
     </div>
