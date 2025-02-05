@@ -8,6 +8,15 @@ export const args = {
   twitter: '@debiru_R',
 };
 
+export const pages = [
+  { route: '/', label: 'About' },
+  { route: '/html-and-css-basics', label: 'HTML and CSS Basics', desc: '従来の <abbr title="Multi-Page Application">MPA</abbr> による HTML, CSS の基礎について<span class="wbr">知りたい方はこちら</span>' },
+  { route: '/learn-css-with-spa', label: 'Learn CSS with SPA', desc: '<abbr title="Single-Page Application">SPA</abbr> による HTML, CSS の設計手法について<span class="wbr">知りたい方はこちら</span>' },
+  { route: '/semantic-css', label: 'Semantic CSS Approach', desc: 'Semantic CSS の考え方について<span class="wbr">知りたい方はこちら</span>' },
+  { route: '/utility-first-css', label: 'Utility-First CSS Approach', desc: 'Utility-First CSS の考え方について<span class="wbr">知りたい方はこちら</span>' },
+  { route: '/extra', label: 'Extra Stage' },
+];
+
 export const app = {
   init(Astro) {
     app.Astro = Astro;

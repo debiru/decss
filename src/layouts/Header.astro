@@ -1,13 +1,14 @@
 ---
-import { img, route } from '/src/config/view';
+import { pages, img, route } from '/src/config/view';
 ---
 
 <div class="content-inner">
   <h1 class="siteName"><a href={ route('/') }><img src={ img('global/logo.png') } alt="DECSS" width="140" height="80"></a></h1>
   <div class="globalNavArea">
     <ul class="globalNav">
-      <li><a href={ route('/') }>About</a></li>
-      <li><a href={ route('/author') }>Author</a></li>
+      { pages.map((page) => (
+        <li><a href={ route(page.route) }>{ page.label }</a></li>
+      ))}
     </ul>
   </div>
 </div>
