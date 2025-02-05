@@ -92,7 +92,7 @@ small {
 }
 
 #page-header {
-  line-height: 1;
+  line-height: 1.3;
 }
 #page-header .content-inner {
   display: flex;
@@ -120,6 +120,18 @@ small {
   align-items: center;
   gap: 10px 30px;
   padding-block: 10px;
+  text-align: center;
+}
+#page-header .globalNavArea .globalNav > li a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+#page-header .globalNavArea .globalNav > li a[href="/extra"] {
+  color: #639;
+}
+#page-header .globalNavArea .globalNav > li a:hover {
+  text-decoration: underline;
 }
 #page-header .globalNavArea #docs-toc {
   margin-left: auto;
@@ -127,7 +139,7 @@ small {
 }
 
 #page-main {
-  padding-bottom: 30px;
+  padding-bottom: 160px;
 }
 #page-main h1, #page-main h2, #page-main h3, #page-main h4, #page-main h5, #page-main h6 {
   font-weight: bold;
@@ -188,6 +200,7 @@ small {
 }
 #page-main :is(h2, h3, h4, h5, h6)::after {
   display: inline-block;
+  margin-top: 8px;
   margin-left: 8px;
   color: #666;
   vertical-align: super;
@@ -340,17 +353,16 @@ small {
   vertical-align: middle;
 }
 
-.mod-image {
+#page-main .mod-image {
   text-align: center;
 }
-.mod-image img {
+#page-main .mod-image img {
   border: 1px solid #999;
 }
-
-.mod-table {
+#page-main .mod-table {
   overflow: auto;
 }
-.mod-table table {
+#page-main .mod-table table {
   width: fit-content;
   margin-inline: auto;
   border-collapse: separate;
@@ -359,28 +371,27 @@ small {
   border-color: #999;
   overflow-wrap: break-word;
 }
-.mod-table table.center td {
+#page-main .mod-table table.center td {
   text-align: center;
 }
-.mod-table table :is(th, td) {
+#page-main .mod-table table :is(th, td) {
   padding: 4px 8px;
   border-width: 0 1px 1px 0;
   border-style: solid;
   border-color: #999;
 }
-.mod-table table thead th {
+#page-main .mod-table table thead th {
   background: #ddd;
 }
-.mod-table table th {
+#page-main .mod-table table th {
   text-align: center;
   font-weight: bold;
 }
-
-.mod-pre {
+#page-main .mod-pre {
   position: relative;
   font-size: 1.4rem;
 }
-.mod-pre pre {
+#page-main .mod-pre pre {
   overflow: auto;
   padding: 8px;
   border: 1px solid #f90;
@@ -389,27 +400,27 @@ small {
   white-space: pre;
   font-family: var(--font-monospace);
 }
-.mod-pre pre.wrap {
+#page-main .mod-pre pre.wrap {
   white-space: break-spaces;
   word-break: break-all;
   overflow-wrap: break-word;
 }
-.mod-pre:is(.bad, .good, .cool) pre {
+#page-main .mod-pre:is(.bad, .good, .cool) pre {
   margin-top: 40px;
 }
-.mod-pre.bad pre {
+#page-main .mod-pre.bad pre {
   border-color: #900;
   background: #fcc;
 }
-.mod-pre.good pre {
+#page-main .mod-pre.good pre {
   border-color: #090;
   background: #cfc;
 }
-.mod-pre.cool pre {
+#page-main .mod-pre.cool pre {
   border-color: #009;
   background: #cff;
 }
-.mod-pre::before {
+#page-main .mod-pre::before {
   position: absolute;
   left: 0;
   bottom: 100%;
@@ -420,28 +431,100 @@ small {
   font-weight: bold;
   font-family: var(--font-monospace);
 }
-.mod-pre.bad::before {
+#page-main .mod-pre.bad::before {
   content: "Bad";
   border-color: #900;
   background: #f99;
 }
-.mod-pre.good::before {
+#page-main .mod-pre.good::before {
   content: "Good";
   border-color: #090;
   background: #9f9;
 }
-.mod-pre.cool::before {
+#page-main .mod-pre.cool::before {
   content: "Cool";
   border-color: #009;
   background: #9ff;
 }
-
-.mod-note {
+#page-main .mod-note {
   padding: 2px 8px;
   border: 1px dashed #999;
 }
-.mod-note > *:not(:first-child) {
+#page-main .mod-note > *:not(:first-child) {
   margin-top: 10px;
+}
+#page-main .mod-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#page-main .mod-profile .profileInfo {
+  line-height: 1.5;
+}
+#page-main .mod-profile .profileInfo dl dt {
+  border-bottom: 1px dotted #639;
+  font-family: var(--font-serif);
+}
+#page-main .mod-profile .profileInfo dl dd {
+  margin: 0;
+}
+#page-main .mod-profile .profileInfo dl dd ul {
+  list-style: none;
+  margin: 0;
+}
+#page-main .mod-link-selection {
+  container-type: inline-size;
+  container-name: mod-link-selection;
+}
+#page-main .mod-link-selection dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+#page-main .mod-link-selection dl .di {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  gap: 8px;
+  z-index: 0;
+  position: relative;
+  margin-top: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(#fff, #ffc);
+  box-shadow: 4px 4px 8px #ccc;
+}
+#page-main .mod-link-selection dl dt {
+  pointer-events: none;
+  font-size: 1.3rem;
+}
+#page-main .mod-link-selection dl dt abbr {
+  pointer-events: auto;
+}
+#page-main .mod-link-selection dl dd {
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.4rem;
+}
+#page-main .mod-link-selection dl dd a::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+}
+@container mod-link-selection (width < 1050px) {
+  #page-main .mod-link-selection dl {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+@container mod-link-selection (width < 750px) {
+  #page-main .mod-link-selection dl {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
 }
 
 #docs-toc {
@@ -465,6 +548,7 @@ small {
   flex-flow: column;
   gap: 4px;
   overflow: auto;
+  width: max-content;
   max-width: calc(100dvw - 40px);
   max-height: 60dvh;
   margin-top: 10px;
