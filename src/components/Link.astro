@@ -1,0 +1,6 @@
+---
+const { url, label } = Astro.props;
+const target = /^#/.test(url) ? undefined : '_blank';
+---
+
+<a href={url} target={target}>{label}</a>

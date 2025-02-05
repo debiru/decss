@@ -1,0 +1,19 @@
+---
+import { setID, getID } from '/src/config/view';
+const { heading, id, lv } = Astro.props;
+const Heading = `h${lv}`;
+---
+
+<section class={ `section lv-${lv}` } id={ setID(id) }>
+  <div class="sectionHeader">
+    <Heading><a href={ getID() }>{ heading }</a></Heading>
+  </div>
+  <div class="sectionBody">{
+    Astro.slots.has('sectionChild') && <div class="sectionChild"><slot name="sectionChild" /></div>
+  }{
+    Astro.slots.has('sectionSibling') && <div class="sectionSibling"><slot name="sectionSibling" /></div>
+  }{
+    Astro.slots.has('sectionChildLast') && <div class="sectionChild"><slot name="sectionChildLast" /></div>
+  }
+  </div>
+</section>
