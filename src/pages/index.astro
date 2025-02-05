@@ -1,10 +1,102 @@
 ---
 import Layout from '/src/layouts/Layout.astro';
+import Link from '/src/components/Link.astro';
 import Section from '/src/components/Section.astro';
-import { img } from '/src/config/view';
+import { pages, route } from '/src/config/view';
 const pageArgs = {};
 ---
 
 <Layout args={pageArgs}>
-
+  <Section heading="Author" id="author" lv="2" lang="en">
+    <Fragment slot="sectionChild">
+      <div class="mod-profile">
+        <div class="profileImage">
+          <p><img src="https://debiru.net/assets/img/global/takai-minoru-480x640.jpg" alt="Photographic portrait of the author" width="240" height="320"></p>
+        </div>
+        <div class="profileInfo">
+          <dl>
+            <div class="di">
+              <dt>Author Name</dt>
+              <dd>Takai Minoru</dd>
+            </div>
+            <div class="di">
+              <dt>Twitter (X)</dt>
+              <dd><Link url="https://x.com/debiru_R" label="@debiru_R" /></dd>
+            </div>
+            <div class="di">
+              <dt>GitHub</dt>
+              <dd><Link url="https://github.com/debiru/" /></dd>
+            </div>
+            <div class="di">
+              <dt>Blog</dt>
+              <dd><Link url="http://debiru.hatenablog.com/" /></dd>
+            </div>
+            <div class="di">
+              <dt>Website</dt>
+              <dd>
+                <ul>
+                  <li><Link url="https://debiru.net/" /></li>
+                  <li><Link url="https://lavoscore.org/" /></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </Fragment>
+  </Section>
+  <Section heading="What is DECSS?" id="what-is-DECSS" lv="2" lang="en">
+    <Fragment slot="sectionChild">
+      <p><strong>DECSS</strong> (pronounced <code>/decks/</code> or <code>/dee-ee-CSS/</code>) is neither a CSS module like <Link url="https://tailwindcss.com/" label="Tailwind CSS" /> nor a CSS methodology like <Link url="https://en.bem.info/methodology/" label="BEM" />. DECSS is a term coined to describe a philosophy about the Definitive Ecosystem of CSS. In short, DECSS is a kind of treatise on what CSS should be. Since I, the author, am Japanese, so other pages will be written in Japanese only.</p>
+    </Fragment>
+    <Fragment slot="sectionSibling">
+      <Section heading="日本語訳 - DECSS とは" id="what-is-DECSS-in-ja" lv="3">
+        <Fragment slot="sectionChild">
+          <p><strong>DECSS</strong>（<code>/デックス/</code> または <code>/ディー・イー・シーエスエス/</code> と発音する）は <Link url="https://tailwindcss.com/" label="Tailwind CSS" /> のような CSS モジュールでもなければ <Link url="https://en.bem.info/methodology/" label="BEM" /> のような CSS 設計の方法論でもありません。DECSS は、CSS の究極の生態系 (Definitive Ecosystem) についての思想を表す造語です。要するに、DECSS は CSS のあるべき姿についての論考です。著者である私は日本人なので、他のページは日本語で書かせていただきます。</p>
+        </Fragment>
+      </Section>
+    </Fragment>
+  </Section>
+  <Section heading="The topic of DECSS" id="topic-of-DECSS" lv="2" lang="en">
+    <Fragment slot="sectionChild">
+      <p>In a nutshell, what DECSS wants to consider is whether we should use <strong>Utility-First CSS</strong> like Tailwind CSS.</p>
+    </Fragment>
+    <Fragment slot="sectionSibling">
+      <Section heading="日本語訳 - DECSS の論点" id="topic-of-DECSS-in-ja" lv="3">
+        <Fragment slot="sectionChild">
+          <p>一言で言えば、DECSS が考察したいことは、Tailwind CSS のような <strong>Utility-First CSS</strong> の是非を問うことです。</p>
+        </Fragment>
+      </Section>
+    </Fragment>
+  </Section>
+  <Section heading="Conclusion of DECSS" id="conclusion-of-DECSS" lv="2" lang="en" langLast={ null }>
+    <Fragment slot="sectionChild">
+      <p>My definitive theory is that whether to design with semantic CSS or utility-first CSS is a matter of preference, not a matter of which is better.</p>
+      <p>I am Japanese and eat Japanese food on a daily basis. But I also eat Italian food, and pasta is one of my favorites. If you were to go to a restaurant with me, and I were to order pasta instead of Japanese food, you would not advise me that "You should eat Japanese food". It's the same thing. If someone is trying to use Tailwind CSS, you have no right to advise them that "It is not good and you should use semantic CSS design".</p>
+      <p>This is a matter of taste. Both Japanese and Italian food are wonderful, and if you keep eating the same thing, on the other hand, you may eventually stop wanting to eat it. If that happens, you can always try something else. Comparing Japanese and Italian food is nonsense. You only need to consider whether what you want to eat is to the liking of that "development project" or not.</p>
+      <p>... However, you may not know for which projects semantic CSS design or utility-first CSS design is appropriate. Let's take a closer look at each of these and other CSS design techniques.</p>
+    </Fragment>
+    <Fragment slot="sectionSibling">
+      <Section heading="日本語訳 - DECSS の結論" id="conclusion-of-DECSS-in-ja" lv="3">
+        <Fragment slot="sectionChild">
+          <p>私の究極的な持論は、Semantic CSS による設計と Utility-First CSS による設計のどちらを用いるかについては好みの問題であって、どちらが優れているかという問題ではないということです。</p>
+          <p>私は日本人で和食を日常的に食べます。しかしイタリア料理も食べますし、パスタも好きなもののひとつです。もし、あなたが私と一緒にレストランに行って、私が和食ではなくパスタを注文したとしても、あなたは私に「和食を食べなさい」とはアドバイスしないでしょう。それと同じことなのです。もし誰かが Tailwind CSS を使おうとしていたとしても、あなたが「それは良くないから、Semantic CSS 設計をすべきだ」とアドバイスするのはおかしいことなのです。</p>
+          <p>これは好みの問題なのです。日本料理もイタリア料理も素晴らしいものです。一方で同じものばかり食べ続けていると、そのうち食べたくなくなってしまうかもしれません。その場合には、他の料理を食べればよいのです。日本料理とイタリア料理を比較するのはナンセンスなのです。食べたいものが、その「開発プロジェクト」の好みに合うか合わないかだけを考えればよいのです。</p>
+          <p>……とは言っても、どんなプロジェクトに Semantic CSS 設計あるいは Utility first CSS 設計が適しているのかわからないでしょう。それぞれの、あるいはその他の CSS 設計手法についての詳細を見ていきましょう。</p>
+        </Fragment>
+      </Section>
+    </Fragment>
+    <Fragment slot="sectionChildLast">
+      <div class="mod-link-selection">
+        <dl>
+          { pages.filter((page) => page.desc).map((page) => (
+            <div class="di">
+              <dt set:html={ page.desc } />
+              <dd><Link url={ route(page.route) } label={ page.label } /></dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </Fragment>
+  </Section>
 </Layout>
